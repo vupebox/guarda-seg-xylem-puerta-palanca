@@ -1,3 +1,4 @@
+
 int input1=3;
 int input2=4;
 int output1=5;
@@ -18,7 +19,7 @@ void setup() {
   pinMode(output2_1,OUTPUT);
   pinMode(output2_2,OUTPUT);
 
-  digitalWrite(output1,LOW);
+  digitalWrite(output1,HIGH);
   digitalWrite(output2_1,LOW);
   digitalWrite(output2_2,LOW);
   
@@ -36,7 +37,7 @@ void loop() {
   }else{
     tiempoInicial=millis(); //Reiniciar conteo
   }
-  digitalWrite(output1,LOW);
+  digitalWrite(output1,HIGH);
   digitalWrite(output2_1,LOW);
   digitalWrite(output2_2,LOW);
   delay(1);
@@ -49,10 +50,11 @@ void leerEntradas(){
 }
 
 void IniciarProceso(){
-  digitalWrite(output1,HIGH); 
+  digitalWrite(output1,LOW); 
   delay(3000);
   digitalWrite(output2_1,HIGH);
   digitalWrite(output2_2,LOW);
+  
   leerEntradas();
   while(estadoEntrada1!=0){ //Espera que palanca se mueva a 0
     leerEntradas();
@@ -66,7 +68,7 @@ void IniciarProceso(){
   digitalWrite(output2_1,LOW);
   digitalWrite(output2_2,HIGH);
   delay(3000);
-  digitalWrite(output1,LOW);
+  digitalWrite(output1,HIGH);
 
   tiempoInicial=millis(); //Reiniciar conteo al iniciar el loop
 }
