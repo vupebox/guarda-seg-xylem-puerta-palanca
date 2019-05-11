@@ -1,5 +1,5 @@
 
-int input1=3;
+  int input1=3;
 int input2=4;
 int output1=5;
 int output2_1=6;
@@ -31,7 +31,7 @@ void loop() {
   leerEntradas();
   if( (estadoEntrada1==1)&&(estadoEntrada2==1)){
       tiempo=millis()-tiempoInicial;
-      if(tiempo > 5000){
+      if(tiempo > 2000){
         IniciarProceso();
       }
   }else{
@@ -51,8 +51,10 @@ void leerEntradas(){
 
 void IniciarProceso(){
   digitalWrite(output1,LOW); 
-  delay(3000);
+  delay(2000);
   digitalWrite(output2_1,HIGH);
+  delay(5000);
+  digitalWrite(output2_1,LOW);
   digitalWrite(output2_2,LOW);
   
   leerEntradas();
@@ -67,7 +69,7 @@ void IniciarProceso(){
   }
   digitalWrite(output2_1,LOW);
   digitalWrite(output2_2,HIGH);
-  delay(3000);
+  delay(5000);
   digitalWrite(output1,HIGH);
 
   tiempoInicial=millis(); //Reiniciar conteo al iniciar el loop
